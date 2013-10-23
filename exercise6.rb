@@ -1,23 +1,28 @@
+grocery_list = ["steak", "kale", "peanut butter", "coffee"]
 
-grocery_list = ["steak", "kale", "peanut butter", "coffee", "rice"]
+grocery_list << "rice"
 
- def forgotten_foods 
- 	puts "What did you forget this time?"
- 	input = gets.chomp	
+ def list_of_foods(grocery_list)
+	grocery_list.each { |x| puts "* " + x }
  end
 
-forgotten_foods
+list_of_foods(grocery_list)
 
-grocery_list = ["steak", "kale", "peanut butter", "coffee", "rice"]
-grocery_list.each { |x| puts "*" + x }
-
+puts " "
 
 puts "You have to pick up #{grocery_list.count} food items."
 
 unless grocery_list.include?("bananas")
-	puts "You need -so- many bananas."
+	puts "You need to pick up bananas."
 else
-	puts "You probably have too many bananas."
+	puts "You don't need to pick up bananas today."
 end
 
 puts "The second item on the list is: #{grocery_list[1]}!"
+
+puts " "
+
+list_of_foods(grocery_list.sort!)
+puts " "
+grocery_list.delete("rice")
+list_of_foods(grocery_list)
